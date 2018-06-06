@@ -10,6 +10,9 @@ import { ServicesModule } from './services.module';
 
 import { ThemePreviewComponent } from './components/theme/theme-preview.component';
 
+import { ItemLocationCardComponent } from './components/item-location/item-location-card.component';
+import { ItemLocationsComponent } from './components/item-location/item-locations.component';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './routes/home/home.component';
 import { ThemePickerComponent } from './routes/theme-picker/theme-picker.component';
@@ -24,6 +27,8 @@ const routes: Route[] = [
 @NgModule({
   declarations: [
     ThemePreviewComponent,
+    ItemLocationCardComponent,
+    ItemLocationsComponent,
     AppComponent,
     HomeComponent,
     ThemePickerComponent

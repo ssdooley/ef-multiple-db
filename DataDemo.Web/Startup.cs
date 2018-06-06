@@ -1,8 +1,11 @@
+using DataDemo.Primary;
+using DataDemo.Secondary;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -27,6 +30,9 @@ namespace DataDemo.Web
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             });
+
+            services.AddDbContext<PrimaryDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Primary")));
+            services.AddDbContext<SecondaryDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Secondary")));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

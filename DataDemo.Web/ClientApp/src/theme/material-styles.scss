@@ -11,6 +11,7 @@
   $accent: mat-color($a);
   $warn: mat-color($w);
   $background: mat-color($b, background);
+  $background-card: mat-color($b, card);
   $foreground: mat-color($f, text);
   $app-bar: mat-color($b, app-bar);
   $primary-contrast: mat-color($p, default-contrast);
@@ -42,6 +43,10 @@
   .background.warn {
     background-color: $warn;
     color: $warn-contrast;
+  }
+
+  .background.card {
+    background-color: $background-card;
   }
 
   code.snippet,
@@ -80,6 +85,8 @@ html, body, app, .app-panel {
 .mat-typography h4,
 .mat-typography h5,
 .mat-typography h6,
-.mat-typography p {
+.mat-typography p,
+mat-form-field.mat-form-field,
+button {
   margin: 8px;
 }

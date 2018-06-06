@@ -1,21 +1,28 @@
-<h1>Webstack</h1>
-<mat-toolbar>Snacker Service</mat-toolbar>
-<section fxLayout="row | wrap" fxLayoutAlign="start start">
-  <button mat-raised-button *ngFor="let p of palette" (click)="testSnacker(p)">{{p}}</button>
+<h1>Working with Two Databases</h1>
+<mat-progress-bar *ngIf="service.loadingItems || service.loadingLocations" mode="indeterminate" color="accent"></mat-progress-bar>
+<section fxLayout="column" fxLayoutAlign="start stretch" *ngIf="!(service.loadingItems) && !(service.loadingLocations)">
+  <section fxLayout="row" fxLayoutAlign="start start">
+    <mat-form-field fxFlex *ngIf="service.items$ | async as items">
+      <mat-label>Items</mat-label>
+      <mat-select [(ngModel)]="item">
+        <mat-option *ngFor="let i of items" [value]="i">{{i.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex *ngIf="service.locations$ | async as locations">
+      <mat-label>Locations</mat-label>
+      <mat-select [(ngModel)]="location">
+        <mat-option *ngFor="let l of locations" [value]="l">{{l.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+  <section>
+    <button mat-button color="primary" (click)="saveItemLocation()">Save</button>
+  </section>
 </section>
-<mat-toolbar>Styles</mat-toolbar>
-<p><a href="https://google.com" target="_blank" class="link">Google</a></p>
-<p><code class="snippet">console.log('code.snippet')</code></p>
-<p><code class="snippet alt">console.log('code.snippet.alt')</code></p>
-<p class="color primary">Primary Color</p>
-<p class="color accent">Accent Color</p>
-<p class="color warn">Warn Color</p>
-<section class="background primary">
-  Primary Background
-</section>
-<section class="background accent">
-  Accent Background
-</section>
-<section class="background warn">
-  Warn Background
+<mat-toolbar>Item Locations</mat-toolbar>
+<ng-template #loadingItems>
+  <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+</ng-template>
+<section *ngIf="service.itemLocations$ | async as items else loadingItems">
+  <item-locations [items]="items"></item-locations>
 </section>

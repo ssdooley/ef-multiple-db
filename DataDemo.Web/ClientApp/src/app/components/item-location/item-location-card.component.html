@@ -1,0 +1,8 @@
+<section class="item-card background card" fxLayout="column" fxLayoutAlign="start stretch">
+  <p class="background accent header">{{item.item.name}}</p>
+  <h3>Locations</h3>
+  <section *ngIf="item.locations?.length > 0">
+    <p class="location-card background primary" *ngFor="let l of item.locations">{{l.name}}</p>
+  </section>
+  <p class="color warn" *ngIf="!(item.locations?.length > 0)">No Locations for {{item.item.name}}</p>
+</section>

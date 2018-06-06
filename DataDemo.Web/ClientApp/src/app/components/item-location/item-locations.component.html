@@ -1,0 +1,4 @@
+<section *ngIf="items?.length > 0" fxLayout="row | wrap" fxLayoutAlign="start start">
+  <item-location-card *ngFor="let i of items" [item]="i"></item-location-card>
+</section>
+<h3 *ngIf="!(items?.length > 0)">No Items Found</h3>
