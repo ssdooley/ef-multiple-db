@@ -1,0 +1,14 @@
+<div class="mat-typography app-panel" fxLayout="column" [ngClass]="themeClass">
+  <mat-toolbar color="primary">
+    <a mat-icon-button routerLink="home" matTooltip="Home" [style.margin-right.px]="16">
+      <mat-icon>home</mat-icon>
+    </a>
+    <span fxFlex>Title</span>
+    <a mat-icon-button routerLink="theme-picker" matTooltip="Theme Picker">
+      <mat-icon>format_color_fill</mat-icon>
+    </a>
+  </mat-toolbar>
+  <section class="app-body mat-app-background" fxFlex fxFill>
+    <router-outlet></router-outlet>
+  </section>
+</div>

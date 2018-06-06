@@ -1,0 +1,14 @@
+<section fxLayout="column" fxLayoutAlign="start start">
+  <section fxLayout="column" fxFlex fxLayoutAlign="start start">
+    <mat-toolbar>Dark Themes</mat-toolbar>
+    <section fxLayout="row | wrap" fxLayoutAlign="start center" *ngIf="theme.darkThemes$ | async as darkThemes">
+      <theme-preview *ngFor="let t of darkThemes" [theme]="t" (click)="theme.setTheme(t)"></theme-preview>
+    </section>
+  </section>
+  <section fxLayout="column" fxFlex fxLayoutAlign="start start">
+    <mat-toolbar>Light Themes</mat-toolbar>
+    <section fxLayout="row | wrap" fxLayoutAlign="start center" *ngIf="theme.lightThemes$ | async as lightThemes">
+      <theme-preview *ngFor="let t of lightThemes" [theme]="t" (click)="theme.setTheme(t)"></theme-preview>
+    </section>
+  </section>
+</section>

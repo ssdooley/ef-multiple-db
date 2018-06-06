@@ -1,0 +1,16 @@
+<section class="theme-card mat-app-background" [ngClass]="theme.name">
+  <mat-toolbar color="primary">{{theme.display}}</mat-toolbar>
+  <section class="theme-body">
+    <p>Preview of theme {{theme.display}}</p>
+    <section fxLayout="row" fxLayoutAlign="space-around start">
+      <p class="color primary">Primary Color</p>
+      <p class="color accent">Accent Color</p>
+      <p class="color warn">Warn Color</p>
+    </section>
+    <section fxLayout="row" fxLayoutAlign="start start">
+      <section fxFlex class="background primary">Primary</section>
+      <section fxFlex class="background accent">Accent</section>
+      <section fxFlex class="background warn">Warn</section>
+    </section>
+  </section>
+</section>

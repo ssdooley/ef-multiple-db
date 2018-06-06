@@ -1,0 +1,21 @@
+<h1>Webstack</h1>
+<mat-toolbar>Snacker Service</mat-toolbar>
+<section fxLayout="row | wrap" fxLayoutAlign="start start">
+  <button mat-raised-button *ngFor="let p of palette" (click)="testSnacker(p)">{{p}}</button>
+</section>
+<mat-toolbar>Styles</mat-toolbar>
+<p><a href="https://google.com" target="_blank" class="link">Google</a></p>
+<p><code class="snippet">console.log('code.snippet')</code></p>
+<p><code class="snippet alt">console.log('code.snippet.alt')</code></p>
+<p class="color primary">Primary Color</p>
+<p class="color accent">Accent Color</p>
+<p class="color warn">Warn Color</p>
+<section class="background primary">
+  Primary Background
+</section>
+<section class="background accent">
+  Accent Background
+</section>
+<section class="background warn">
+  Warn Background
+</section>
